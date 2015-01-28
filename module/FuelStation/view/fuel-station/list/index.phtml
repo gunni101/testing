@@ -1,0 +1,11 @@
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+ <h2>Tankstellenverzeichnis</h2>
+
+ <?php foreach ($this->stations as $station): ?>
+ <article>
+         <h4 id="station<?= $station->getId() ?>" class="text-primary"><?= $station->getStationId() ?></h4>
+    <p>
+         <?= $station->getStreet() ?>,&nbsp;<?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?>
+     </p>
+ </article>
+ <?php endforeach ?>
