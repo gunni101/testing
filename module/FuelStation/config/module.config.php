@@ -23,28 +23,28 @@ return array(
         ),
     ),
 
-    'router' => array(
-        'routes' => array(
-            'fuelstation' => array(
-                'type' => 'literal',
-                'options' => array(
-                    'route' => '/tankstelle',
-                    'defaults' => array(
-                        'controller' => 'FuelStation\Controller\List',
-                        'action' => 'index',
-                    ),
-                    'may_terrminate' => true,
-                    'child_routes' => array(
-                        'detail' => array(
-                            'type' => 'segment',
-                            'options' => array(
-                                'route' => '/:id',
-                                'defaults' => array(
-                                    'action' => 'detail',
-                                ),
-                                'constraints' => array(
-                                    'id' => '[1-9]\d*'
-                                )
+   'router' => array(
+         'routes' => array(
+             'fuelstation' => array(
+                 'type' => 'literal',
+                 'options' => array(
+                     'route'    => '/tankstelle',
+                     'defaults' => array(
+                         'controller' => 'FuelStation\Controller\List',
+                         'action'     => 'index',
+                     ),
+                 ),
+                 'may_terminate' => true,
+                 'child_routes'  => array(
+                     'detail' => array(
+                         'type' => 'segment',
+                         'options' => array(
+                             'route'    => '/:id',
+                             'defaults' => array(
+                                 'action' => 'detail'
+                             ),
+                             'constraints' => array(
+                                 'id' => '[1-9]\d*'
                             )
                         )
                     )
@@ -52,4 +52,6 @@ return array(
             ),
         ),
     ),
+
+
 );

@@ -28,6 +28,7 @@ return array(
                 array('route' => 'zfcuser/changeemail', 'roles' => array('user')),
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 array('route' => 'fuelstation', 'roles' => array('user')),
+                array('route' => 'fuelstation/detail', 'roles' => array('user')),
                 array('route' => 'home', 'roles' => array('guest', 'user', 'admin')),
             ),
         ),

@@ -29,6 +29,16 @@ class ListController extends AbstractActionController
 
     public function detailAction()
     {
-        return new ViewModel();
+        $id = $this->params()->fromRoute('id');
+
+        try {
+            $station = $this->stationService->findStation($id);
+        } catch (\InvalidArgumentException $ex) {
+            return $this->redirect()->toRoute('fuelstation');
+        }
+
+        return new ViewModel(array(
+            'station' => $station
+        ));
     }
 }
