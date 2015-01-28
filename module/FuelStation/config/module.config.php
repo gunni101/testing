@@ -26,29 +26,19 @@ return array(
    'router' => array(
          'routes' => array(
              'fuelstation' => array(
-                 'type' => 'literal',
+                 'type' => 'segment',
                  'options' => array(
-                     'route'    => '/tankstelle',
+                     'route'    => '/tankstelle[/:action][/:id]',
                      'defaults' => array(
                          'controller' => 'FuelStation\Controller\List',
                          'action'     => 'index',
+
+                     ),
+                     'constraints' => array(
+                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                         'id' => '[1-9]\d*'
                      ),
                  ),
-                 'may_terminate' => true,
-                 'child_routes'  => array(
-                     'detail' => array(
-                         'type' => 'segment',
-                         'options' => array(
-                             'route'    => '/:id',
-                             'defaults' => array(
-                                 'action' => 'detail'
-                             ),
-                             'constraints' => array(
-                                 'id' => '[1-9]\d*'
-                            )
-                        )
-                    )
-                ),
             ),
         ),
     ),

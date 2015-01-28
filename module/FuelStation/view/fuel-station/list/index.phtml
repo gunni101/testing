@@ -3,7 +3,7 @@
 
  <?php foreach ($this->stations as $station): ?>
  <article>
-         <h4 id="station<?= $station->getId() ?>" class="text-primary"><?= $station->getStationId() ?></h4>
+         <a href="<?php echo $this->url( 'fuelstation', array('action' => 'detail', 'id' => $station->getId()) ); ?>"><h4><?= $station->getStationId() ?></h4></a>
     <p>
          <?= $station->getStreet() ?>,&nbsp;<?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?>
      </p>

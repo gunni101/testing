@@ -1,10 +1,17 @@
  <!-- FileName: /module/Blog/view/blog/list/detail.phtml -->
  <h1>Tankstelle Details</h1>
 
- <row5>
+ <dl>
      <dt>Tankstelle</dt>
      <dd><?php echo $this->escapeHtml($this->station->getStationId());?></dd>
+     <dt>Adresse</dt>
      <dd><?php echo $this->escapeHtml($this->station->getStreet());?></dd>
      <dd><?php echo $this->escapeHtml($this->station->getPostalCode());?>&nbsp;<?php echo $this->escapeHtml($this->station->getCity());?></dd>
- </row5>
-
+     <dt>Geo</dt>
+     <dd>L&auml;nge: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLatitude());?></dd>
+     <dd>Breite: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLongitude());?></dd>
+ </dl>
+<hr>
+ <dl>
+More to come
+ </dl>
