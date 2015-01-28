@@ -17,7 +17,6 @@ return array(
         ),
     ),
 
-
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
@@ -34,6 +33,21 @@ return array(
                         'controller' => 'FuelStation\Controller\List',
                         'action' => 'index',
                     ),
+                    'may_terrminate' => true,
+                    'child_routes' => array(
+                        'detail' => array(
+                            'type' => 'segment',
+                            'options' => array(
+                                'route' => '/:id',
+                                'defaults' => array(
+                                    'action' => 'detail',
+                                ),
+                                'constraints' => array(
+                                    'id' => '[1-9]\d*'
+                                )
+                            )
+                        )
+                    )
                 ),
             ),
         ),

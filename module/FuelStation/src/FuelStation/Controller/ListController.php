@@ -26,4 +26,9 @@ class ListController extends AbstractActionController
             'stations' => $this->stationService->findAllStations()
         ));
     }
+
+    public function detailAction()
+    {
+        return new ViewModel();
+    }
 }
