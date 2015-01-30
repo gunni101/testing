@@ -28,7 +28,7 @@ class ListController extends AbstractActionController
         $stations = $this->stationService->findAllStations();
 
         foreach ($stations as $station){
-           if($station->getGeoCoordinateLatitude() == null && $station->getGeoCoordinateLongitude() == null) {
+           if($station->getPoolActive() == 'false') {
                continue;
            }
            $marker[$station->getStationId()] = $station->getGeoCoordinateLatitude() . "," . $station->getGeoCoordinateLongitude();

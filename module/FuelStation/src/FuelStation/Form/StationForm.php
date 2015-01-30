@@ -79,6 +79,15 @@ class StationForm extends Form
                 'type' => 'text'
             )
         ));
+        $this->add(array(
+            'name' => 'poolActive',
+            'options' => array(
+                'label' => 'Poolfaehig'
+            ),
+            'attributes' => array(
+                'type' => 'text'
+            )
+        ));
 
         $submit = new Element\Button('submit');
         $submit

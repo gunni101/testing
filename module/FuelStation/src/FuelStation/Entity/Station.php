@@ -171,4 +171,20 @@ class Station implements StationInterface
     {
         $this->geoCoordinateLongitude = $geoCoordinateLongitude;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPoolActive()
+    {
+        return $this->poolActive;
+    }
+
+    /**
+     * @param bool $poolActive
+     */
+    public function setPoolActive($poolActive)
+    {
+        $this->poolActive = $poolActive;
+    }
 }

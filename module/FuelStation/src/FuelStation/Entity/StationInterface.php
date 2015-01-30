@@ -59,4 +59,11 @@ interface StationInterface
      * @return string
      */
     public function getGeoCoordinateLongitude();
+
+    /**
+     * Return true if station is ready for TP24
+     *
+     * @return bool
+     */
+    public function getPoolActive();
 }
