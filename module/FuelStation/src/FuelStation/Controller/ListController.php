@@ -28,13 +28,13 @@ class ListController extends AbstractActionController
         $stations = $this->stationService->findAllStations();
 
         foreach ($stations as $station){
-           if($station->getGeoCoordinateLatitude() == null && $station->getGeoCoordinateLongitude() == null) {
-               continue;
-           }
-           $marker[$station->getStationId()] = $station->getGeoCoordinateLatitude() . "," . $station->getGeoCoordinateLongitude();
-       }
+            if($station->getPoolActive() == NULL) {
+                continue;
+            }
+            $marker[$station->getStationId()] = $station->getGeoCoordinateLatitude() . "," . $station->getGeoCoordinateLongitude();
+        }
 
-       $markers = array($marker);
+        $markers = array($marker);
 
         $config = array(
             'sensor' => 'true',         //true or false
