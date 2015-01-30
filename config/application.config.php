@@ -11,6 +11,7 @@ return array(
         'ZfcUserDoctrineORM',
         'BjyAuthorize',
         'Application',
+        'GMaps',
         'User',
         'FuelStation',
     ),

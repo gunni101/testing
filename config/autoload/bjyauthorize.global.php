@@ -29,6 +29,8 @@ return array(
                 array('route' => 'zfcuser/changepassword', 'roles' => array('user')),
                 array('route' => 'fuelstation', 'roles' => array('user')),
                 array('route' => 'fuelstation/detail', 'roles' => array('user')),
+                array('route' => 'fuelstation/add', 'roles' => array('user')),
+                array('route' => 'fuelstation/edit', 'roles' => array('user')),
                 array('route' => 'home', 'roles' => array('guest', 'user', 'admin')),
             ),
         ),

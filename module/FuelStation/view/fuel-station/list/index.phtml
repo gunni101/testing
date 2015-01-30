@@ -3,9 +3,14 @@
 
  <?php foreach ($this->stations as $station): ?>
  <article>
-         <a href="<?php echo $this->url( 'fuelstation', array('action' => 'detail', 'id' => $station->getId()) ); ?>"><h4><?= $station->getStationId() ?></h4></a>
+         <h4><a href="<?php echo $this->url( 'fuelstation/detail', array('id' => $station->getId()) ); ?>"><?= $station->getStationId() ?></a></h4>
     <p>
          <?= $station->getStreet() ?>,&nbsp;<?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?>
-     </p>
+         <a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>">edit</a>
+   </p>
  </article>
- <?php endforeach ?>
+  <?php endforeach ?>
+  <?php echo $this->map_html; ?>
+  <p>
+  <a href="<?php echo $this->url( 'fuelstation/add'); ?>">Tankstelle anlegen.</a>
+  </p>

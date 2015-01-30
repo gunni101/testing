@@ -12,6 +12,7 @@ return array(
     'controllers' => array(
         'factories' => array(
             'FuelStation\Controller\List' => 'FuelStation\Factory\ListControllerFactory',
+            'FuelStation\Controller\Write' => 'FuelStation\Factory\WriteControllerFactory',
         ),
         'invokables' => array(
         ),
@@ -23,25 +24,57 @@ return array(
         ),
     ),
 
-   'router' => array(
-         'routes' => array(
-             'fuelstation' => array(
-                 'type' => 'segment',
-                 'options' => array(
-                     'route'    => '/tankstelle[/:action][/:id]',
-                     'defaults' => array(
-                         'controller' => 'FuelStation\Controller\List',
-                         'action'     => 'index',
-
-                     ),
-                     'constraints' => array(
-                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                         'id' => '[1-9]\d*'
-                     ),
-                 ),
-            ),
-        ),
-    ),
-
-
+    'router'          => array(
+        'routes' => array(
+            'fuelstation' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route'    => '/tankstelle',
+                    'defaults' => array(
+                        'controller' => 'FuelStation\Controller\List',
+                        'action'     => 'index',
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes'  => array(
+                    'detail' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route'    => '/:id',
+                            'defaults' => array(
+                                'controller' => 'FuelStation\Controller\List',
+                                'action' => 'detail',
+                            ),
+                            'constraints' => array(
+                                'id' => '\d+'
+                            )
+                        )
+                    ),
+                    'add' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/add',
+                            'defaults' => array(
+                                'controller' => 'FuelStation\Controller\Write',
+                                'action'     => 'add'
+                            )
+                        )
+                    ),
+                    'edit' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route'    => '/edit/:id',
+                            'defaults' => array(
+                                'controller' => 'FuelStation\Controller\Write',
+                                'action'     => 'edit'
+                            ),
+                            'constraints' => array(
+                                'id' => '\d+'
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
 );

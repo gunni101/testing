@@ -1,17 +1,33 @@
  <!-- FileName: /module/Blog/view/blog/list/detail.phtml -->
- <h1>Tankstelle Details</h1>
+ <h2>Tankstelle Details</h2>
 
- <dl>
-     <dt>Tankstelle</dt>
-     <dd><?php echo $this->escapeHtml($this->station->getStationId());?></dd>
-     <dt>Adresse</dt>
-     <dd><?php echo $this->escapeHtml($this->station->getStreet());?></dd>
-     <dd><?php echo $this->escapeHtml($this->station->getPostalCode());?>&nbsp;<?php echo $this->escapeHtml($this->station->getCity());?></dd>
-     <dt>Geo</dt>
-     <dd>L&auml;nge: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLatitude());?></dd>
-     <dd>Breite: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLongitude());?></dd>
- </dl>
-<hr>
- <dl>
-More to come
- </dl>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">Adresse</div>
+            </div>
+            <div class="panel-body">
+                <dl>
+                     <dd><?php echo $this->escapeHtml($this->station->getStationId());?></dd>
+                     <dd><?php echo $this->escapeHtml($this->station->getStreet());?></dd>
+                     <dd><?php echo $this->escapeHtml($this->station->getPostalCode());?>&nbsp;<?php echo $this->escapeHtml($this->station->getCity());?></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">Geodaten</div>
+            </div>
+            <div class="panel-body">
+                <dl>
+                     <dd>L&auml;nge: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLatitude());?></dd>
+                    <dd>Breite: <?php echo $this->escapeHtml($this->station->getGeoCoordinateLongitude());?></dd>
+                    <dd><?php echo $this->map_html; ?></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,4 +19,13 @@ interface StationMapperInterface
      * @return array|FuelStationInterface[]
      */
     public function findAll();
+
+    /**
+     * @param StationInterface $stationObject
+     *
+     * @param StationInterface $stationObject
+     * @return StationInterface
+     * @throws \Exception
+     */
+    public function save(StationInterface $stationObject);
 }

@@ -19,7 +19,8 @@ class ListControllerFactory implements FactoryInterface
     {
         $realServiceLocator = $serviceLocator->getServiceLocator();
         $stationService = $realServiceLocator->get('FuelStation\Service\StationServiceInterface');
+        $gmapsService = $serviceLocator->getServiceLocator()->get('GMaps\Service\GoogleMap');
 
-        return new ListController($stationService);
+        return new ListController($stationService, $gmapsService);
     }
 }

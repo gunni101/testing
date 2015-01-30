@@ -21,4 +21,11 @@ interface StationServiceInterface
      * @return FuelStationInterface
      */
     public function findStation($id);
+
+    /**
+     * Should save a single FuelStation
+     * @param StationInterface $station
+     * @return tationInterface
+     */
+    public function saveStation(StationInterface $station);
 }

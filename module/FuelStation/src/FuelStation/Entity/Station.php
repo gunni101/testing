@@ -37,12 +37,12 @@ class Station implements StationInterface
     /**
      * @var string
      */
-    protected $geoCordinateLatitude;
+    protected $geoCoordinateLatitude;
 
     /**
      * @var string
      */
-    protected $geoCordinateLongitude;
+    protected $geoCoordinateLongitude;
 
     /**
      * {@inheritDoc}

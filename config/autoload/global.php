@@ -25,4 +25,7 @@ return array(
                      => 'Zend\Db\Adapter\AdapterServiceFactory',
          ),
      ),
+    'GMaps' => array(
+        'api_key' => 'AIzaSyCj-gS3Sd7gbKtnEM-ry9mSSmwCTmSF1QA'
+    )
  );

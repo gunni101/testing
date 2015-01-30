@@ -4,6 +4,7 @@
 namespace FuelStation\Service;
 
 use FuelStation\Mapper\StationMapperInterface;
+use FuelStation\Entity\StationInterface;
 
 class StationService implements StationServiceInterface
 {
@@ -35,5 +36,13 @@ class StationService implements StationServiceInterface
     public function findStation($id)
     {
         return $this->stationMapper->find($id);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function saveStation(StationInterface $station)
+    {
+        return $this->stationMapper->save($station);
     }
 }
