@@ -1,16 +1,32 @@
 <!-- Filename: /module/Blog/view/blog/list/index.phtml -->
- <h2>Tankstellenverzeichnis</h2>
-
- <?php foreach ($this->stations as $station): ?>
- <article>
-         <h4><a href="<?php echo $this->url( 'fuelstation/detail', array('id' => $station->getId()) ); ?>"><?= $station->getStationId() ?></a></h4>
-    <p>
-         <?= $station->getStreet() ?>,&nbsp;<?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?>
-         <a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>">edit</a>
-   </p>
- </article>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">Tankstellenverzeichnis</div>
+            </div>
+            <div class="panel-body">
+  <?php foreach ($this->stations as $station): ?>
+                <dl>
+                    <dt><a href="<?php echo $this->url( 'fuelstation/detail', array('id' => $station->getId()) ); ?>"><?= $station->getStationId() ?></a></dt>
+                    <dd><?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?></dd>
+                    <dd><a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>">edit</a></dd>
+                </dl>
   <?php endforeach ?>
-  <?php echo $this->map_html; ?>
-  <p>
-  <a href="<?php echo $this->url( 'fuelstation/add'); ?>">Tankstelle anlegen.</a>
-  </p>
+                <dl>
+                    <dd><a href="<?php echo $this->url( 'fuelstation/add'); ?>">Tankstelle anlegen.</a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">Geo</div>
+            </div>
+            <div class="panel-body">
+                <?php echo $this->map_html; ?>
+            </div>
+        </div>
+
+ </div>
