@@ -43,8 +43,8 @@ class ListController extends AbstractActionController
             'zoom' => 8,                //zoom level
             'width' => "600px",         //width of the div
             'height' => "400px",        //height of the div
-            'lat' => $station->getGeoCoordinateLatitude(),         //lattitude
-            'lon' => $station->getGeoCoordinateLongitude(),         //longitude
+            'lat' => "49.15486000",         //lattitude
+            'lon' => "09.21384000",         //longitude
             'animation' => 'none',      //animation of the marker
             'markers' => $marker       //loading the array of markers
         );

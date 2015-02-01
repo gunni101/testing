@@ -1,25 +1,26 @@
 <!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+
 <div class="row">
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-title">Tankstellenverzeichnis</div>
             </div>
-            <div class="panel-body">
+        </div>
+        <div class="panel-body">
   <?php foreach ($this->stations as $station): ?>
-                <dl>
-                    <dt><a href="<?php echo $this->url( 'fuelstation/detail', array('id' => $station->getId()) ); ?>"><?= $station->getStationId() ?></a></dt>
-                    <dd><?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?></dd>
-                    <dd><a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>">edit</a></dd>
-                </dl>
+            <dl>
+                <dt><a href="<?php echo $this->url( 'fuelstation/detail', array('id' => $station->getId()) ); ?>"><?= $station->getStationId() ?></a></dt>
+                <dd><?= $station->getPostalCode() ?>&nbsp;<?= $station->getCity() ?></dd>
+                <dd><a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>">edit</a></dd>
+            </dl>
   <?php endforeach ?>
-                <dl>
-                    <dd><a href="<?php echo $this->url( 'fuelstation/add'); ?>">Tankstelle anlegen.</a></dd>
-                </dl>
-            </div>
+            <dl>
+                <dd><a href="<?php echo $this->url( 'fuelstation/add'); ?>">Tankstelle anlegen.</a></dd>
+            </dl>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-7">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-title">Geo</div>
@@ -28,5 +29,8 @@
                 <?php echo $this->map_html; ?>
             </div>
         </div>
+    </div>
+</div>
 
- </div>
+
+
