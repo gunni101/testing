@@ -5,7 +5,9 @@
     <div class="col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="panel-title">Adresse</div>
+                <div class="panel-title">Adresse
+                    <a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>"><img src="<?php echo $this->basePath('images/edit.png') ?>" alt="edit" align="right"/></a>
+               </div>
             </div>
             <div class="panel-body">
                 <dl>
