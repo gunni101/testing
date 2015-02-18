@@ -44,26 +44,33 @@ class WriteController extends AbstractActionController
 
     public function editAction()
     {
+        $viewmodel = new ViewModel();
         $request = $this->getRequest();
         $station = $this->stationService->findStation($this->params('id'));
-
         $this->stationForm->bind($station);
+        $viewmodel->setTerminal($request->isXmlHttpRequest());
 
-        if($request->isPost()){
-            $this->stationForm->setData($request->getPost());
-            if($this->stationForm->isValid()) {
-                try {
-                    $this->stationService->saveStation($station);
+        $is_xmlhttprequest = 1;
+        if( ! $request->isXmlHttpRequest()){
+            $is_xmlhttprequest = 0;
+            if($request->isPost()){
+                $this->stationForm->setData($request->getPost());
+                if($this->stationForm->isValid()) {
+                    try {
+                        $this->stationService->saveStation($station);
 
-                    return $this->redirect()->toRoute('fuelstation');
-                } catch ( \Exception $e) {
-                    die($e->getMessage());
+                        return $this->redirect()->toRoute('fuelstation/detail', array('id' =>$this->params('id')));
+                    } catch ( \Exception $e) {
+                        die($e->getMessage());
+                    }
                 }
             }
         }
-        return new ViewModel(array(
-            'form' => $this->stationForm
+        $viewmodel->setVariables(array(
+            'form' => $this->stationForm,
+            'is_xmlhttprequest' => $is_xmlhttprequest
         ));
+        return $viewmodel;
     }
 
 }

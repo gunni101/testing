@@ -40,7 +40,7 @@ return array(
                     'detail' => array(
                         'type' => 'segment',
                         'options' => array(
-                            'route'    => '/:id',
+                            'route'    => '/detail/:id',
                             'defaults' => array(
                                 'controller' => 'FuelStation\Controller\List',
                                 'action' => 'detail',

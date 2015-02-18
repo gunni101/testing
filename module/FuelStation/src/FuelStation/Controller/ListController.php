@@ -73,8 +73,8 @@ class ListController extends AbstractActionController
             'div_id' => 'map',          //div id of the google map
             'div_class' => 'grid_6',    //div class of the google map
             'zoom' => 17,                //zoom level
-            'width' => "300px",         //width of the div
-            'height' => "200px",        //height of the div
+            'width' => "350px",         //width of the div
+            'height' => "250px",        //height of the div
             'lat' => $station->getGeoCoordinateLatitude(),         //lattitude
             'lon' => $station->getGeoCoordinateLongitude(),         //longitude
             'animation' => 'none',      //animation of the marker

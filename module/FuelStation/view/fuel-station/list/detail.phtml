@@ -1,12 +1,30 @@
- <!-- FileName: /module/Blog/view/blog/list/detail.phtml -->
- <h2>Tankstelle Details</h2>
+<!-- FileName: /module/Blog/view/blog/list/detail.phtml -->
+<!-- css -->
+<!-- the custom UI is based on jQueryUI theme you've downloaded -->
+<?php $this->headLink()
+            ->prependStylesheet($this->basePath() . '/js/jqueryUI/jquery-ui.css'); ?>
+<!-- Js -->
+<?php  $this->headScript()
+            ->appendFile($this->basePath() . '/js/jqueryUI/jquery-ui.js')
+            ->appendFile($this->basePath() . '/js/ajaxform.js'); ?>
 
 <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->translate('Dashboard') ?></h3>
+            </div>
+            <div class="panel-body">
+                <a class="btn btn-primary pull-left" href="<?php echo $this->url('fuelstation') ?>"><img src="<?php echo $this->basePath('img/saule.png') ?>" alt="Tankstelle"/></a>
+            </div>
+        </div>
+    </div>
     <div class="col-lg-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="panel-title">Adresse
-                    <a href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>"><img src="<?php echo $this->basePath('images/edit.png') ?>" alt="edit" align="right"/></a>
+                    <a id="showform" href="<?php echo $this->url( 'fuelstation/edit', array('id' => $station->getId()) ); ?>"><img src="<?php echo $this->basePath('images/edit.png') ?>" alt="edit" align="right"/></a>
+                    <div id="winpopup"></div>
                </div>
             </div>
             <div class="panel-body">
